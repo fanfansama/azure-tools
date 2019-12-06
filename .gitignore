@@ -1,0 +1,5 @@
+
+cosmosdb/setEnv.sh
+cosmosdb/*.gz
+cosmosdb/*.json
+cosmosdb/*.log
