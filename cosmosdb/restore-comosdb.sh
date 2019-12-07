@@ -2,11 +2,17 @@ source ./setEnv.sh
 
 export TMP_DIR='/tmp/mongodump'
 
-az cosmosdb mongodb collection list -g dev -a myadvisory-dev-cosmos -d myadvisory --query=[].mongoDbCollectionId > collections.json
 
-echo "##### Extract collections form azure CLI"
+if [ -n "$1" ]; then
+  echo "[ \"$1\" ]" > collections.json
+  echo "##### Extract collection : $1"
+else
+   
+   az cosmosdb mongodb collection list -g dev -a myadvisory-dev-cosmos -d myadvisory --query=[].mongoDbCollectionId > collections.json
+   echo "##### Extract collection(s) form azure CLI"
+fi
+
 cat collections.json
-
 rm *.log
 
 for row in $(cat collections.json | jq '.[]'); do
