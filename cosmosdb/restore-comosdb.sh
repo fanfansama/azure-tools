@@ -7,7 +7,6 @@ if [ -n "$1" ]; then
   echo "[ \"$1\" ]" > collections.json
   echo "##### Extract collection : $1"
 else
-
    az cosmosdb mongodb collection list -g dev -a myadvisory-dev-cosmos -d myadvisory --query=[].mongoDbCollectionId > collections.json
    echo "##### Extract collection(s) form azure CLI"
 fi
@@ -50,3 +49,6 @@ echo 'DONE !'
 echo "##### Failed import(s) : ####"
 grep --include=\*.log -rnw './' -e "Failed"
 echo "##### Ended ! #####"
+
+
+echo "detecter pattern 'error' "
