@@ -7,7 +7,6 @@ if [ -n "$1" ]; then
   echo "[ \"$1\" ]" > collections.json
   echo "##### Extract collection : $1"
 else
-   
    az cosmosdb mongodb collection list -g dev -a myadvisory-dev-cosmos -d myadvisory --query=[].mongoDbCollectionId > collections.json
    echo "##### Extract collection(s) form azure CLI"
 fi
@@ -20,7 +19,7 @@ for row in $(cat collections.json | jq '.[]'); do
       echo ${row} | jq -r ${1}
     }
     ITEM=$(_jq  '.')
-    
+
     echo "##############################################"
     echo "##### restoring collection :  $ITEM"
 
@@ -31,8 +30,8 @@ for row in $(cat collections.json | jq '.[]'); do
         --numParallelCollections=1 \
         --numInsertionWorkersPerCollection=1 \
         --noIndexRestore \
-	--nsInclude=myadvisory.$ITEM \
-	--dir=/tmp/dump \
+        --nsInclude=myadvisory.$ITEM \
+        --dir=/tmp/dump \
         --uri=$DB_TARGET_CONNECT_STRING >> $ITEM.log 2>&1
 
 
@@ -52,3 +51,5 @@ grep --include=\*.log -rnw './' -e "Failed"
 echo "##### Ended ! #####"
 
 echo "TODO detecter 'error'"
+
+echo "detecter pattern 'error' "
