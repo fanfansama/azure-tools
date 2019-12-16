@@ -50,3 +50,5 @@ echo 'DONE !'
 echo "##### Failed import(s) : ####"
 grep --include=\*.log -rnw './' -e "Failed"
 echo "##### Ended ! #####"
+
+echo "TODO detecter 'error'"
