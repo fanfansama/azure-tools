@@ -1,6 +1,6 @@
 export HOST=myadvisory-dev-cosmos.documents.azure.com
 export USER=myadvisory-dev-cosmos
-export PASS=62bh1kCnSv6ej3Q8bSat5tenTB42gUmd7sWSuthSirqCiGEzrglJPyU6MPwYBiq2NUFXzP7bRZQ4P6SlyaDrzA== 
+export PASS=
 export DB=myadvisory
 export PORT=10255
 
