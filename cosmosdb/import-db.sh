@@ -3,7 +3,7 @@ export HOST=cosmosaccount-mongo-poc-ops.documents.azure.com
 export USER=cosmosaccount-mongo-poc-ops
 export USER_ORIGIN=myadvisory-dev-cosmos
 export ENV_ORIGIN=dev
-export PASS=HEZh8Fn50mwZbuwDrtCBdFO2cft4rs3Zl8HkK7lt4m8MV0GFIawXw3gK6WffVoEDDXUzGJTKjsaWUZEobIasrg== 
+export PASS=
 export DB=myadvisory
 export PORT=10255
 
