@@ -3,6 +3,12 @@ source ./setEnv.sh
 export TMP_DIR='/tmp/mongodump'
 
 
+# FIXME: gerer correctement le "user"
+sudo rm -rf $TMP_DUMP && sudo mkdir $TMP_DUMP
+sudo chmod +777 $TMP_DUMP
+
+
+
 if [ -n "$1" ]; then
   echo "[ \"$1\" ]" > collections.json
   echo "##### Extract collection : $1"
@@ -35,7 +41,7 @@ for row in $(cat collections.json | jq '.[]'); do
         --uri=$DB_TARGET_CONNECT_STRING >> $ITEM.log 2>&1
 
 
-      if `grep -q "Failed" $ITEM.log` ;
+      if `grep -q "error" $ITEM.log` ;
         then
                 echo "##### > Failure"
         else
@@ -47,8 +53,8 @@ done
 echo 'DONE !'
 
 echo "##### Failed import(s) : ####"
-grep --include=\*.log -rnw './' -e "Failed"
+grep --include=\*.log -rnw './' -e "error"
 echo "##### Ended ! #####"
 
 
-echo "detecter pattern 'error' "
+echo "detecter pattern 'error Error Failure ' "
