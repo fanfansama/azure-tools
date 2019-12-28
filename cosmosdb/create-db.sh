@@ -17,4 +17,5 @@ az cosmosdb create \
     --default-consistency-level "Session" \
     --enable-multiple-write-locations false \
     --capabilities "EnableAggregationPipeline" "MongoDBv3.4" \
-    --enable-automatic-failover false
+    --enable-automatic-failover false 
+# ne fonctionne pas de mongodb    --throughput 400

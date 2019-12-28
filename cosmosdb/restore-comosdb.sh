@@ -56,5 +56,6 @@ echo "##### Failed import(s) : ####"
 grep --include=\*.log -rnw './' -e "error"
 echo "##### Ended ! #####"
 
+echo "TODO detecter 'error'"
 
 echo "detecter pattern 'error Error Failure ' "
